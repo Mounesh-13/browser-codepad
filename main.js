@@ -16,17 +16,16 @@ const defaultJS = '// Write your JavaScript here\nconsole.log("Hello from JS!");
 function updatePreview() {
     const html = htmlEditor.value;
     const css = `<style>${cssEditor.value}</style>`;
-    // Properly inject script tag without escaping '/' (not needed in srcdoc context)
     const js = `<script>\n${jsEditor.value}\n<\/script>`;
     const srcdoc = `<!DOCTYPE html><html><head><meta charset=\"UTF-8\">${css}</head><body>${html}${js}</body></html>`;
-    // Remove and re-add iframe to force script execution in all browsers
-    const parent = preview.parentNode;
-    const newIframe = preview.cloneNode(false);
-    newIframe.id = preview.id;
+    // Always get the latest iframe reference
+    const currentPreview = document.getElementById('preview');
+    if (!currentPreview || !currentPreview.parentNode) return;
+    const parent = currentPreview.parentNode;
+    const newIframe = currentPreview.cloneNode(false);
+    newIframe.id = currentPreview.id;
     newIframe.srcdoc = srcdoc;
-    parent.replaceChild(newIframe, preview);
-    // Update global reference
-    window.preview = newIframe;
+    parent.replaceChild(newIframe, currentPreview);
 }
 
 // Tab switching

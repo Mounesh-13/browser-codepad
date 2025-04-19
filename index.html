@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="editor-section">
+            <div class="editor-header">
+                <button id="runBtn">Run Code</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+            <div class="editor-tabs">
+                <button class="tab-btn active" data-tab="html">HTML</button>
+                <button class="tab-btn" data-tab="css">CSS</button>
+                <button class="tab-btn" data-tab="js">JavaScript</button>
+            </div>
+            <div class="editor-panes">
+                <textarea id="htmlEditor" class="editor-pane active" spellcheck="false" placeholder="<!-- Write your HTML here -->"></textarea>
+                <textarea id="cssEditor" class="editor-pane" spellcheck="false" placeholder="/* Write your CSS here */"></textarea>
+                <textarea id="jsEditor" class="editor-pane" spellcheck="false" placeholder="// Write your JavaScript here"></textarea>
+            </div>
+        </section>
+        <section class="preview-section">
+            <div class="preview-header">Live Preview</div>
+            <!-- Sandbox removed to allow JavaScript to run properly in the preview. -->
+<iframe id="preview"></iframe>
+        </section>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

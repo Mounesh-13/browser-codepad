@@ -1,0 +1,153 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    background: #181a20;
+    color: #e0e0e0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    gap: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.editor-section, .preview-section {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    background: #23272f;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-section {
+    flex: 1 1 0;
+    max-width: 50vw;
+    min-width: 320px;
+    padding: 0 0 16px 0;
+    background: #23272f;
+}
+
+.preview-section {
+    flex: 1 1 0;
+    min-width: 320px;
+    background: #fff;
+    color: #23272f;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    align-items: stretch;
+}
+
+.editor-header {
+    display: flex;
+    gap: 8px;
+    padding: 16px 16px 8px 16px;
+    background: transparent;
+    align-items: center;
+}
+
+.editor-header button {
+    background: #383e4b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.editor-header button:hover {
+    background: #50576a;
+}
+
+.editor-tabs {
+    display: flex;
+    gap: 2px;
+    margin: 0 16px 0 16px;
+}
+.tab-btn {
+    flex: 1;
+    background: #23272f;
+    color: #aaa;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+.tab-btn.active {
+    color: #fff;
+    border-bottom: 2px solid #4f8cff;
+}
+
+.editor-panes {
+    flex: 1 1 0;
+    display: flex;
+    position: relative;
+    min-height: 0;
+}
+.editor-pane {
+    display: none;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    background: #23272f;
+    color: #e0e0e0;
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+    font-size: 1rem;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 0 0 12px 12px;
+    tab-size: 4;
+    line-height: 1.5;
+    min-height: 200px;
+    transition: background 0.2s;
+}
+.editor-pane.active {
+    display: block;
+}
+
+.preview-header {
+    background: #f4f6fa;
+    color: #23272f;
+    padding: 16px;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#preview {
+    flex: 1 1 0;
+    width: 100%;
+    border: none;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    min-height: 300px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        gap: 16px;
+        padding: 12px;
+    }
+    .editor-section, .preview-section {
+        max-width: 100vw;
+        min-width: 0;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #23272f;
+}
+::-webkit-scrollbar-thumb {
+    background: #383e4b;
+    border-radius: 4px;
+}

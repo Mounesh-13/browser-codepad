@@ -20,5 +20,3 @@ Open `index.html` in your browser.
 - `main.js`: Editor functionality and live preview
 
 ---
-
-Created with ❤️ by Cascade AI
